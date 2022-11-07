@@ -17,4 +17,4 @@ services:
       retries: 3
     hostname: minio1
     volumes:
-      - /root/minio/data:/data
+      - /root/minio:/data
