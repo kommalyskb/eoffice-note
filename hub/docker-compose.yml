@@ -1,0 +1,17 @@
+version: '3'
+services:
+  socket:
+    image: codecamplao/eoffice-hub:1.1.0
+    container_name: eoffice-hub
+    extra_hosts:
+      - "lb02.eofficev3:10.1.1.71"
+      - "db.local:10.1.1.74"
+      - "postgres.local:10.1.1.75"
+      - "redis.local:10.1.1.70"
+      - "log.local:10.1.1.70"
+      - "storage.local:10.1.1.69"
+      - "api.local:10.1.1.69"
+      - "job.local:10.1.1.69"
+      - "socket.local:10.1.1.69"
+    ports:
+      - "7000:80"
