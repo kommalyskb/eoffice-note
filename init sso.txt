@@ -1,0 +1,1 @@
+dotnet new skoruba.is4admin --name SSODOffice --title "SSO D Office" --adminemail "admin@eoffice.la" --adminpassword "Admin@1qaz2wsx" --adminrole Administrator --adminclientid DOfficeClient --adminclientsecret a5bb57be563b4fd79781ab0bf772293e --dockersupport true
