@@ -1,0 +1,61 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres:14.1-alpine
+    container_name: eoffice-postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    hostname: postgres.local
+    networks: 
+      - eofficenetwork
+    volumes: 
+      - db:/var/lib/postgresql/data
+  login:
+    image: codecamplao/eoffice-login-sso:1.0.1
+    container_name: eoffice-login
+    restart: always
+    hostname: login.eofffice.local
+    networks: 
+      - eofficenetwork
+    ports:
+      - "9000:5000"
+    depends_on:
+      - postgres
+  admin:
+    image: codecamplao/eoffice-admin-sso:1.0.1
+    container_name: eoffice-admin
+    restart: always
+    hostname: admin.eofffice.local
+    networks: 
+      - eofficenetwork
+    ports:
+      - "9001:5000"
+    depends_on:
+      - postgres
+      - login
+    # Uncomment command /seed for first time deploy
+    # command: dotnet SSODOffice.Admin.dll /seed
+
+  client:
+    image: codecamplao/eoffice-client-sso:1.0.1
+    container_name: eoffice-client
+    restart: always
+    hostname: client.eofffice.local
+    networks: 
+      - eofficenetwork
+    ports:
+      - "9002:5000"
+    depends_on:
+      - postgres
+      - admin
+      - login
+networks: 
+  eofficenetwork:
+volumes:
+  db:
+    driver: local
