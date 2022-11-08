@@ -4,7 +4,8 @@ services:
     image: codecamplao/eoffice-socket:1.0.0
     container_name: eoffice-socket
     extra_hosts:
-      - "lb02.eofficev3:10.1.1.71"
+      - "login.local:10.1.1.71"
+      - "client.local:10.1.1.71"
       - "db.local:10.1.1.74"
       - "postgres.local:10.1.1.75"
       - "redis.local:10.1.1.70"
@@ -19,7 +20,8 @@ services:
     image: codecamplao/eoffice-frontend:v3.8.1
     container_name: eoffice-fronend
     extra_hosts:
-      - "lb02.eofficev3:10.1.1.71"
+      - "login.local:10.1.1.71"
+      - "client.local:10.1.1.71"
       - "db.local:10.1.1.74"
       - "postgres.local:10.1.1.75"
       - "redis.local:10.1.1.70"
@@ -34,7 +36,8 @@ services:
     image: codecamplao/eoffice-api:v3.8.1
     container_name: eoffice-gateway
     extra_hosts:
-      - "lb02.eofficev3:10.1.1.71"
+      - "login.local:10.1.1.71"
+      - "client.local:10.1.1.71"
       - "db.local:10.1.1.74"
       - "postgres.local:10.1.1.75"
       - "redis.local:10.1.1.70"
@@ -49,7 +52,8 @@ services:
     image: codecamplao/eoffice-webjob:v1.0.4
     container_name: eoffice-webjob
     extra_hosts:
-      - "lb02.eofficev3:10.1.1.71"
+      - "login.local:10.1.1.71"
+      - "client.local:10.1.1.71"
       - "db.local:10.1.1.74"
       - "postgres.local:10.1.1.75"
       - "redis.local:10.1.1.70"
