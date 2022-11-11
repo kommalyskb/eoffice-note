@@ -1,7 +1,7 @@
 version: '3'
 services:
   hub:
-    image: codecamplao/eoffice-hub:v1.0.0
+    image: codecamplao/eoffice-hub:v1.0.1
     container_name: eoffice-hub
     hostname: hub
     restart: always
