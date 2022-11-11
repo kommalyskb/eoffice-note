@@ -1,0 +1,31 @@
+version: '3'
+services:
+  postgresserver:
+    image: postgres:14.1-alpine
+    container_name: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    networks:
+      - ccnetwork
+    volumes: 
+      - ./postgres/data:/var/lib/postgresql/data
+  couchserver:
+    image: couchdb
+    restart: always
+    container_name: couchdb
+    ports:
+      - "5984:5984"
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=1qaz2wsx
+    networks:
+      - ccnetwork
+    volumes:
+        - ./couchdb/data:/opt/couchdb/data
+  
+networks: 
+  ccnetwork:
