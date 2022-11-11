@@ -1,9 +1,10 @@
 version: '3'
 services:
-  socket:
-    image: codecamplao/eoffice-hub:1.1.0
+  hub:
+    image: codecamplao/eoffice-hub:v1.0.0
     container_name: eoffice-hub
     hostname: hub
+    restart: always
     extra_hosts:
       - "db.local:10.1.1.79"
       - "postgres.local:10.1.1.79"
@@ -16,6 +17,7 @@ services:
       image: nginx:1.19.2-alpine
       container_name: eoffice-proxy
       hostname: proxy
+      restart: always
       volumes:
         - ./nginx.conf:/etc/nginx/nginx.conf:ro
         - ./eoffice-fullchain.pem:/opt/eoffice-fullchain.pem
@@ -26,6 +28,6 @@ services:
       networks: 
       - ccnetwork
       depends_on:
-      - socket
+      - hub
 networks: 
   ccnetwork:
