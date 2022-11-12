@@ -18,6 +18,7 @@ services:
         - ./nginx.conf:/etc/nginx/nginx.conf:ro
         - ./eeoffice_la.crt:/opt/eoffice_la.crt
         - ./eoffice-key.pem:/opt/eoffice-key.pem
+        - ./eoffice-fullchain.pem:/opt/eoffice-fullchain.pem
       ports:
         - "443:443"
         - "80:80"
