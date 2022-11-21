@@ -4,63 +4,73 @@ services:
     image: codecamplao/eoffice-socket:1.0.0
     container_name: eoffice-socket
     extra_hosts:
-      - "login.local:10.1.1.71"
-      - "client.local:10.1.1.71"
+      # - "login.local:10.1.1.71"
+      # - "client.local:10.1.1.71"
       - "db.local:10.1.1.74"
       - "postgres.local:10.1.1.75"
       - "redis.local:10.1.1.70"
       - "log.local:10.1.1.70"
       - "storage.local:10.1.1.69"
-      - "api.local:10.1.1.69"
-      - "job.local:10.1.1.69"
-      - "socket.local:10.1.1.69"
+      # - "api.local:10.1.1.69"
+      # - "job.local:10.1.1.69"
+      # - "socket.local:10.1.1.69"
     ports:
       - "6000:80"
+    networks:
+      - appnetwork
   frontend:
     image: codecamplao/eoffice-frontend:v3.8.1
     container_name: eoffice-fronend
     extra_hosts:
-      - "login.local:10.1.1.71"
-      - "client.local:10.1.1.71"
+      # - "login.local:10.1.1.71"
+      # - "client.local:10.1.1.71"
       - "db.local:10.1.1.74"
       - "postgres.local:10.1.1.75"
       - "redis.local:10.1.1.70"
       - "log.local:10.1.1.70"
       - "storage.local:10.1.1.69"
-      - "api.local:10.1.1.69"
-      - "job.local:10.1.1.69"
-      - "socket.local:10.1.1.69"
+      # - "api.local:10.1.1.69"
+      # - "job.local:10.1.1.69"
+      # - "socket.local:10.1.1.69"
     ports:
       - "5000:80"
+    networks:
+      - appnetwork
   gateway:
     image: codecamplao/eoffice-api:v3.8.1
     container_name: eoffice-gateway
     extra_hosts:
-      - "login.local:10.1.1.71"
-      - "client.local:10.1.1.71"
+      # - "login.local:10.1.1.71"
+      # - "client.local:10.1.1.71"
       - "db.local:10.1.1.74"
       - "postgres.local:10.1.1.75"
       - "redis.local:10.1.1.70"
       - "log.local:10.1.1.70"
       - "storage.local:10.1.1.69"
-      - "api.local:10.1.1.69"
-      - "job.local:10.1.1.69"
-      - "socket.local:10.1.1.69"
+      # - "api.local:10.1.1.69"
+      # - "job.local:10.1.1.69"
+      # - "socket.local:10.1.1.69"
     ports:
       - "4000:80"
+    networks:
+      - appnetwork
   webjob:
     image: codecamplao/eoffice-webjob:v1.0.4
     container_name: eoffice-webjob
     extra_hosts:
-      - "login.local:10.1.1.71"
-      - "client.local:10.1.1.71"
+      # - "login.local:10.1.1.71"
+      # - "client.local:10.1.1.71"
       - "db.local:10.1.1.74"
       - "postgres.local:10.1.1.75"
       - "redis.local:10.1.1.70"
       - "log.local:10.1.1.70"
       - "storage.local:10.1.1.69"
-      - "api.local:10.1.1.69"
-      - "job.local:10.1.1.69"
-      - "socket.local:10.1.1.69"
+      # - "api.local:10.1.1.69"
+      # - "job.local:10.1.1.69"
+      # - "socket.local:10.1.1.69"
     ports:
       - "3000:80"
+    networks:
+      - appnetwork
+networks:
+  appnetwork:
