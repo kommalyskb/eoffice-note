@@ -41,11 +41,62 @@ codecamplao/eoffice-api
 codecamplao/eoffice-webjob
 
 #Build docker profile
-docker build -t codecamplao/eoffice-frontend:v3.8.0.3 -f .\GOffice.Frontend\Dockerfile .
-docker build -t codecamplao/eoffice-api:v3.8.0.3 -f .\GOffice.APIGateway\Dockerfile .
-docker build -t codecamplao/eoffice-webjob:v1.0.0 -f .\WebJobAPI\Dockerfile .
+---------------UAT
+docker build -t codecamplao/eoffice-frontend:v3.8.1.4a -f .\GOffice.Frontend\Dockerfile .
+docker build -t codecamplao/eoffice-api:v3.8.1.4a -f .\GOffice.APIGateway\Dockerfile .
+---------------MTC
+docker build -t codecamplao/eoffice-frontend:v3.8.1.4a-mtc -f .\GOffice.Frontend\Dockerfile .
+docker build -t codecamplao/eoffice-api:v3.8.1.4a-mtc -f .\GOffice.APIGateway\Dockerfile .
+---------------NA
+docker build -t codecamplao/eoffice-frontend:v3.8.1.4a-na -f .\GOffice.Frontend\Dockerfile .
+docker build -t codecamplao/eoffice-api:v3.8.1.4a-na -f .\GOffice.APIGateway\Dockerfile .
+---------------MON
+docker build -t codecamplao/eoffice-frontend:v3.8.1.4a-monre -f .\GOffice.Frontend\Dockerfile .
+docker build -t codecamplao/eoffice-api:v3.8.1.4a-monre -f .\GOffice.APIGateway\Dockerfile .
+---------------MOHA
+docker build -t codecamplao/eoffice-frontend:v3.8.1.4c-moha -f .\GOffice.Frontend\Dockerfile .
+docker build -t codecamplao/eoffice-api:v3.8.1.4d-moha -f .\GOffice.APIGateway\Dockerfile .
+---------------VTE
+docker build -t codecamplao/eoffice-frontend:v3.8.1.4a-vte -f .\GOffice.Frontend\Dockerfile .
+docker build -t codecamplao/eoffice-api:v3.8.1.4a-vte -f .\GOffice.APIGateway\Dockerfile .
+--------------MigrantStorage
+docker build -t codecamplao/eoffice-migrant-storage:v1.0.5 .
+--------------Cloud signing Web
+docker build -t codecamplao/cloud-signing-web:v1.0.7 -f .\eOffice.CloudSigning\Dockerfile .
+
+
+docker build -t codecamplao/eoffice-hub:v1.0.3 -f .\GOffice.Hub\Dockerfile .
+
+docker build -t codecamplao/eoffice-webjob:v1.0.6 -f .\WebJobAPI\Dockerfile .
 
 #Run docker
-docker run --rm -d codecamplao/eoffice-frontend:v3.8.0.3
-docker run --rm -d codecamplao/eoffice-api:v3.8.0.3
+docker run --rm -d codecamplao/eoffice-frontend:v3.8.1.1d
+docker run --rm -d codecamplao/eoffice-api:v3.8.1.1f
 docker run --rm -d codecamplao/eoffice-webjob:v1.0.0
+docker run --rm -d codecamplao/eoffice-hub:v1.0.3
+
+#Push
+---------------UAT
+docker push codecamplao/eoffice-frontend:v3.8.1.4a
+docker push codecamplao/eoffice-api:v3.8.1.4a
+docker push codecamplao/eoffice-hub:v1.0.3
+docker push codecamplao/eoffice-webjob:v1.0.6
+---------------MTC
+docker push codecamplao/eoffice-frontend:v3.8.1.4a-mtc
+docker push codecamplao/eoffice-api:v3.8.1.4a-mtc
+---------------NA
+docker push codecamplao/eoffice-frontend:v3.8.1.4a-na
+docker push codecamplao/eoffice-api:v3.8.1.4a-na
+---------------MONRE
+docker push codecamplao/eoffice-frontend:v3.8.1.4a-monre
+docker push codecamplao/eoffice-api:v3.8.1.4a-monre
+---------------MOHA
+docker push codecamplao/eoffice-frontend:v3.8.1.4c-moha
+docker push codecamplao/eoffice-api:v3.8.1.4d-moha
+---------------VTE
+docker push codecamplao/eoffice-frontend:v3.8.1.4a-vte
+docker push codecamplao/eoffice-api:v3.8.1.4a-vte
+--------------MigrantStorage
+docker push codecamplao/eoffice-migrant-storage:v1.0.5
+--------------Cloud signing Web
+docker push codecamplao/cloud-signing-web:v1.0.7
